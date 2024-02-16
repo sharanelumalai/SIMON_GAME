@@ -3,7 +3,7 @@ let user_choosen=[];
 let color = ["green", "red", "yellow", "blue"];
 let Level=0;
 let Permissions_val=false;
-$(document).keypress(starting);
+$(document).on("keypress touchstart", starting);
 function starting() {
   if(!Permissions_val){
     $("#level-title").text("Level "+Level);
@@ -64,6 +64,11 @@ function checkanswer(check_val){
     user_choosen=[];
     Level=0;
     Permissions_val=false;
+     $("body").addClass("game-over");
+
+      setTimeout(function () {
+        $("body").removeClass("game-over");
+      }, 200);
   }
 }
 
